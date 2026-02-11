@@ -1,4 +1,9 @@
-package SmartLibrary;
+package SmartLibrary.Util;
+
+import SmartLibrary.Models.Admin;
+import SmartLibrary.Models.Reader;
+import SmartLibrary.Models.User;
+import SmartLibrary.Models.UserType;
 
 import java.util.regex.Pattern;
 

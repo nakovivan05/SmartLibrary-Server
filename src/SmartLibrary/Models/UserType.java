@@ -1,4 +1,4 @@
-package SmartLibrary;
+package SmartLibrary.Models;
 
 public enum UserType {
     ADMIN,

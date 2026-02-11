@@ -1,9 +1,9 @@
-package SmartLibrary;
+package SmartLibrary.Models;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Reader extends User{
+public class Reader extends User {
     private List<Book> borrowedBooks;
     public Reader(String username, String password)
     {

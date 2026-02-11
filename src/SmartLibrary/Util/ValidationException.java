@@ -1,4 +1,4 @@
-package SmartLibrary;
+package SmartLibrary.Util;
 
 public class ValidationException extends Exception {
     public ValidationException(String message) {

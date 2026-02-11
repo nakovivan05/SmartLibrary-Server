@@ -1,4 +1,4 @@
-package SmartLibrary;
+package SmartLibrary.Models;
 
 import java.io.Serializable;
 import java.util.Objects;

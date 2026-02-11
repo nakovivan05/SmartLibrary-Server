@@ -1,4 +1,9 @@
-package SmartLibrary;
+package SmartLibrary.Server;
+
+import SmartLibrary.Models.*;
+import SmartLibrary.Models.Reader;
+import SmartLibrary.Util.UserFactory;
+import SmartLibrary.Util.ValidationException;
 
 import java.io.*;
 import java.net.ServerSocket;
@@ -145,7 +150,7 @@ public class Server {
                     }
                     else
                     {
-                        readerMenu(sc, out, (Reader) user);
+                        readerMenu(sc, out, (SmartLibrary.Models.Reader) user);
                     }
                 }
             }
@@ -225,7 +230,7 @@ public class Server {
         out.println("Book added!");
     }
 
-    private void readerMenu(Scanner sc, PrintStream out, Reader reader) {
+    private void readerMenu(Scanner sc, PrintStream out, SmartLibrary.Models.Reader reader) {
         while (true) {
             out.println("Choose 1 to see all the books, 2 to borrow a book, 3 to return a book or 4 to exit");
             String choice = sc.nextLine();
@@ -254,7 +259,7 @@ public class Server {
         }
     }
 
-    private void borrowBook(Scanner sc, PrintStream out, Reader reader) {
+    private void borrowBook(Scanner sc, PrintStream out, SmartLibrary.Models.Reader reader) {
         out.println("Enter book title:");
         String title = sc.nextLine();
         synchronized (lock) {
@@ -266,7 +271,7 @@ public class Server {
                     for (User u : users) {
                         if (u.getUsername().equals(reader.getUsername()))
                         {
-                            ((Reader) u).getBorrowedBooks().add(b);
+                            ((SmartLibrary.Models.Reader) u).getBorrowedBooks().add(b);
                             break;
                         }
                     }
@@ -280,7 +285,7 @@ public class Server {
         out.println("Book is not available!");
     }
 
-    private void returnBook(Scanner sc, PrintStream out, Reader reader) {
+    private void returnBook(Scanner sc, PrintStream out, SmartLibrary.Models.Reader reader) {
         out.println("Enter book title to return:");
         String title = sc.nextLine();
         synchronized (lock) {
@@ -288,7 +293,7 @@ public class Server {
             List<User> users = loadUsers();
             for (User u : users) {
                 if (u.getUsername().equals(reader.getUsername())) {
-                    Reader r = (Reader) u;
+                    SmartLibrary.Models.Reader r = (Reader) u;
                     Book found = null;
                     for (Book b : r.getBorrowedBooks()) {
                         if (b.getTitle().equalsIgnoreCase(title)) {
