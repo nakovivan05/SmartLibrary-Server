@@ -14,7 +14,7 @@ public class Client {
         System.out.println("Connecting to SmartLibrary...");
         try (Socket socket = new Socket("localhost", 8080);
              Scanner serverIn = new Scanner(socket.getInputStream());
-             PrintStream serverOut = new PrintStream(socket.getOutputStream());
+             PrintStream serverOut = new PrintStream(socket.getOutputStream(),true);
              Scanner userInput = new Scanner(System.in))
         {
             System.out.println("Connected! loading menu...");

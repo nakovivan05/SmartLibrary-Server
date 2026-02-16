@@ -63,7 +63,7 @@ public class Server {
         {
             e.printStackTrace();
         }
-        return null;
+        return new ArrayList<>();
     }
     public void saveUsers(List<User>users)
     {
